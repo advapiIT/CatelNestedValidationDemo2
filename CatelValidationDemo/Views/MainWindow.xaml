@@ -1,0 +1,23 @@
+﻿<catel:Window x:Class="CatelValidationDemo.Views.MainWindow"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+              xmlns:catel="http://schemas.catelproject.com" 
+              xmlns:views="clr-namespace:CatelValidationDemo.Views"
+              ResizeMode="CanResize" >
+
+     <Grid x:Name="LayoutRoot" Background="LightGreen">
+           <Grid.RowDefinitions>
+               <RowDefinition Height="30"></RowDefinition>
+               <RowDefinition Height="30"></RowDefinition>
+               <RowDefinition Height="30"></RowDefinition>
+           </Grid.RowDefinitions>
+         <StackPanel Orientation="Horizontal">
+             <Label Content="Text"></Label>
+             <TextBox Text="{Binding TextMessage, Mode=TwoWay, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" Width="120" ></TextBox>
+         </StackPanel>
+        <views:InnerView DataContext="{Binding Inner}" Grid.Row="1"></views:InnerView>
+        <views:FooterView Grid.Row="2"></views:FooterView>
+    
+    </Grid>
+    
+</catel:Window>
